@@ -5,7 +5,7 @@ jobs:
       - image: circleci/node:10
     branches:
       only:
-        - master
+        - main
     steps:
       - add_ssh_keys:
           fingerprints:

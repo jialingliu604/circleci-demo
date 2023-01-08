@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
   build: #创建
-    working_directory: ~/circleci_python #工作目录
+    working_directory: ~/circleci-demo #工作目录
     docker: #使用Docker
       - image: "circleci/python:3.7.2"
     steps:

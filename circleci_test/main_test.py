@@ -1,4 +1,4 @@
-from main import Add
+from circleci_python.main import Add
 
 
 def TestAdd():

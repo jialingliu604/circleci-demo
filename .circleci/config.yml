@@ -1,16 +1,16 @@
 version: 2.1
 jobs:
-  build: # 创建
-    working_directory: ~/circleci_python # 工作目录
-    docker:	# 使用Docker
+  build: #创建
+    working_directory: ~/circleci_python #工作目录
+    docker: #使用Docker
       - image: "circleci/python:3.7.2"
     steps:
       - add_ssh_keys:
           fingerprints:
             - "3d:88:b6:61:7e:42:14:f2:1e:43:3d:d6:ad:ae:ff:41"
-      - checkout # 检查内容
-      - run: python3 main.py # 运行创建命令
-  test: # 测试
+      - checkout #检查内容
+      - run: python3 main.py #运行创建命令
+  test: #测试
     working_directory: ~/circleci_test
     docker:
       - image: "circleci/python:3.7.2"
@@ -19,11 +19,11 @@ jobs:
           fingerprints:
             - "3d:88:b6:61:7e:42:14:f2:1e:43:3d:d6:ad:ae:ff:41"
       - checkout
-      - run: python3 main_test.py # 运行测试命令
-workflows: # 工作流程
-  build_and_test: # 起的名字：创建并测试
+      - run: python3 main_test.py #运行测试命令
+workflows: #工作流程
+  build_and_test: #起的名字:创建并测试
     jobs:
       - build
       - test:
-          requires: # 测试的前提是创建
+          requires: #测试的前提是创建
             - build

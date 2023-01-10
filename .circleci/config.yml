@@ -10,7 +10,7 @@ jobs:
           fingerprints:
             - "3d:88:b6:61:7e:42:14:f2:1e:43:3d:d6:ad:ae:ff:41"
       - checkout #检查内容
-      - run: pwd && ls && python3 main.py #运行创建命令
+      - run: pwd && ls -al && python3 main.py #运行创建命令
   test:
     working_directory: ~/circleci-demo #工作目录
     docker: #使用Docker

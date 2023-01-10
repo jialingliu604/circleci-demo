@@ -18,6 +18,27 @@ jobs:
     steps:
       - checkout #检查内容
       - run: pwd && cd circleci_test && ls && python3 main_test.py #运行创建命令
+  deploy-dev:
+    working_directory: ~/circleci-demo #工作目录
+    docker: #使用Docker
+      - image: "circleci/python:3.7.2"
+    steps:
+      - checkout #检查内容
+      - run: echo "deploy dev successfully" #运行创建命令
+  deploy-preprod:
+    working_directory: ~/circleci-demo #工作目录
+    docker: #使用Docker
+      - image: "circleci/python:3.7.2"
+    steps:
+      - checkout #检查内容
+      - run: echo "deploy preprod successfully" #运行创建命令
+  deploy-prod:
+    working_directory: ~/circleci-demo #工作目录
+    docker: #使用Docker
+      - image: "circleci/python:3.7.2"
+    steps:
+      - checkout #检查内容
+      - run: echo "deploy prod successfully" #运行创建命令
 workflows: #工作流程
   build_and_test: #起的名字:创建并测试
     jobs:
@@ -25,3 +46,27 @@ workflows: #工作流程
       - test:
           requires:
             - build
+      - deploy-dev:
+          context: circleci_dev
+          requires:
+            - test
+
+      - approve-deploy-preprod:
+          type: approval
+          requires:
+            - deploy-dev
+
+      - deploy-preprod:
+          context: circleci_preprod
+          requires:
+            - approve-deploy-preprod
+
+      - approve-deploy-prod:
+          type: approval
+          requires:
+            - deploy-preprod
+
+      - deploy-prod:
+          context: circleci_prod
+          requires:
+            - approve-deploy-prod

@@ -1,7 +1,7 @@
 # sys.path.append("")
 import os
 import sys
-from ..circleci_python.main import Add
+from circleci_python.main import Add
 
 sys.path.append(os.path.join("/home/circleci/circleci-demo"))
 def TestAdd():

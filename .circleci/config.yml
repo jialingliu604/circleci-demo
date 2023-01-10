@@ -17,7 +17,7 @@ jobs:
       - image: "circleci/python:3.7.2"
     steps:
       - checkout #检查内容
-      - run: pwd && ls && cd circleci_test && ls && python3 main_test.py #运行创建命令
+      - run: pwd && ls && python3 /circleci_test/main_test.py #运行创建命令
 workflows: #工作流程
   build_and_test: #起的名字:创建并测试
     jobs:

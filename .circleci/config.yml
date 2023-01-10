@@ -1,13 +1,8 @@
 version: 2.1
 
-executors:
-  deploy-setup:
-    docker:
-      - image: "circleci/python:3.7.2"
-
 jobs:
   build: #创建
-    working_directory: ~/circleci-demo/circleci_python #工作目录
+    working_directory: ~/circleci-demo #工作目录
     docker: #使用Docker
       - image: "circleci/python:3.7.2"
     steps:
@@ -17,7 +12,7 @@ jobs:
       - checkout #检查内容
       - run: python3 main.py #运行创建命令
   test:
-    working_directory: ~/circleci-demo/circleci_test #工作目录
+    working_directory: ~/circleci-demo #工作目录
     docker: #使用Docker
       - image: "circleci/python:3.7.2"
     steps:

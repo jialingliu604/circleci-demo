@@ -7,7 +7,7 @@ executors:
 
 jobs:
   build: #创建
-    working_directory: /Users/jialingliu.liu/Documents/circle ci demo/circleci-demo #工作目录
+    working_directory: ~/circle ci demo/circleci-demo #工作目录
     docker: #使用Docker
       - image: "circleci/python:3.7.2"
     steps:
@@ -17,7 +17,7 @@ jobs:
       - checkout #检查内容
       - run: python3 /circle_python/main.py #运行创建命令
   test:
-    working_directory: /Users/jialingliu.liu/Documents/circle ci demo/circleci-demo #工作目录
+    working_directory: ~/circle ci demo/circleci-demo #工作目录
     docker: #使用Docker
       - image: "circleci/python:3.7.2"
     steps:

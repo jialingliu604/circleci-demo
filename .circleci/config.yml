@@ -27,4 +27,6 @@ workflows: #工作流程
   build_and_test: #起的名字:创建并测试
     jobs:
       - build
-      - test
+      - test:
+          requires:
+            - build

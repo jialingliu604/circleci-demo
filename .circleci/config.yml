@@ -10,7 +10,7 @@ jobs:
           fingerprints:
             - "3d:88:b6:61:7e:42:14:f2:1e:43:3d:d6:ad:ae:ff:41"
       - checkout
-      - run: cd circleci_python && ls && python3 magit adin.py
+      - run: cd circleci_python && ls && python3 main.py
   test:
     working_directory: ~/circleci-demo
     docker:

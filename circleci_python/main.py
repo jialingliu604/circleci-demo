@@ -9,4 +9,4 @@ def SayHello():
 
 if __name__ == '__main__':
     SayHello()
-    print(os.environ['GCP_CREDENTIALS'])
+    print(os.environ['circleci_output'])

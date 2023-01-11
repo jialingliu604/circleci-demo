@@ -1,46 +1,46 @@
 version: 2.1
 
 jobs:
-  build: #创建
-    working_directory: ~/circleci-demo #工作目录
-    docker: #使用Docker
+  build:
+    working_directory: ~/circleci-demo
+    docker:
       - image: "circleci/python:3.7.2"
     steps:
       - add_ssh_keys:
           fingerprints:
             - "3d:88:b6:61:7e:42:14:f2:1e:43:3d:d6:ad:ae:ff:41"
-      - checkout #检查内容
-      - run: cd circleci_python && ls && python3 main.py #运行创建命令
+      - checkout
+      - run: cd circleci_python && ls && python3 magit adin.py
   test:
-    working_directory: ~/circleci-demo #工作目录
-    docker: #使用Docker
+    working_directory: ~/circleci-demo
+    docker:
       - image: "circleci/python:3.7.2"
     steps:
-      - checkout #检查内容
-      - run: pwd && cd circleci_test && ls && python3 main_test.py #运行创建命令
+      - checkout
+      - run: pwd && cd circleci_test && ls && python3 main_test.py
   deploy-dev:
-    working_directory: ~/circleci-demo #工作目录
-    docker: #使用Docker
+    working_directory: ~/circleci-demo
+    docker:
       - image: "circleci/python:3.7.2"
     steps:
-      - checkout #检查内容
-      - run: echo "deploy dev successfully" #运行创建命令
+      - checkout
+      - run: echo "deploy dev successfully"
   deploy-preprod:
-    working_directory: ~/circleci-demo #工作目录
-    docker: #使用Docker
+    working_directory: ~/circleci-demo
+    docker:
       - image: "circleci/python:3.7.2"
     steps:
-      - checkout #检查内容
-      - run: echo "deploy preprod successfully" #运行创建命令
+      - checkout
+      - run: echo "deploy preprod successfully"
   deploy-prod:
-    working_directory: ~/circleci-demo #工作目录
-    docker: #使用Docker
+    working_directory: ~/circleci-demo
+    docker:
       - image: "circleci/python:3.7.2"
     steps:
-      - checkout #检查内容
-      - run: echo "deploy prod successfully" #运行创建命令
-workflows: #工作流程
-  build_and_test: #起的名字:创建并测试
+      - checkout
+      - run: echo "deploy prod successfully"
+workflows:
+  build_and_test:
     jobs:
       - build
       - test:

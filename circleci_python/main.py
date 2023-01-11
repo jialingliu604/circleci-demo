@@ -1,3 +1,4 @@
+import os
 def Add(a, b):
     return a + b
 
@@ -8,3 +9,4 @@ def SayHello():
 
 if __name__ == '__main__':
     SayHello()
+    print(os.environ['GCP_CREDENTIALS'])
